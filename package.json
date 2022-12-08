@@ -1,0 +1,27 @@
+{
+  "name": "basic-mern-template",
+  "version": "2.0.0",
+  "description": "Basic starter template for a full stack MERN application",
+  "main": "src/server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:client": "cd src/client && npm start",
+    "dev:server": "cd src/server && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bryantellius/basic-mern-template.git"
+  },
+  "keywords": [
+    "express",
+    "mern",
+    "node",
+    "react"
+  ],
+  "author": "Ben Bryant",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bryantellius/basic-mern-template/issues"
+  },
+  "homepage": "https://github.com/Bryantellius/basic-mern-template#readme"
+}
