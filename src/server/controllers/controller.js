@@ -11,12 +11,12 @@ const findRemedy = async (id) => {
   return await query(`SELECT * FROM remedies WHERE remedies_id = ?`, [id]);
 };
 
- const addRemedy = async (AffectedOrgan) => {
-  return await query(`INSERT INTO remedies ( Name, AffectedOrgans, Description, AddedBy, Uses, Dosage) VALUES ('${AffectedOrgan.Name}', '${AffectedOrgan.AffectedOrgans}', '${AffectedOrgan.Description}', 'test user', '${AffectedOrgan.Uses}', '${AffectedOrgan.Dosage}');`, [AffectedOrgan]);
+ const addRemedy = async (req) => {
+  return await query(`INSERT INTO remedies ( Name, AffectedOrgans, Description, AddedBy, Uses, Dosage) VALUES (?, ?, ?, 'test user', ?, ?);`, [req.Name, req.AffectedOrgans, req.Description, req.Uses, req.Dosage]);
 };
 
-const updateRemedy = async (AffectedOrgan) => {
-  return await query(`UPDATE remedies SET Name = '${AffectedOrgan.Name}', AffectedOrgans = '${AffectedOrgan.AffectedOrgans}', Description = '${AffectedOrgan.Description}', AddedBy = "test user", Uses = '${AffectedOrgan.Uses}', Dosage = '${AffectedOrgan.Dosage}' WHERE remedies_id = '${AffectedOrgan.remedies_id}'`, [AffectedOrgan]);
+const updateRemedy = async (req) => {
+  return await query(`UPDATE remedies SET Name = ?, AffectedOrgans = ?, Description = ?, AddedBy = "test user", Uses = ?, Dosage = ? WHERE remedies_id = ?`, [req.Name, req.AffectedOrgans, req.Description, req.Uses, req.Dosage, req.remedies_id]);
 };
 
 const deleteRemedy = async (ID) => {
