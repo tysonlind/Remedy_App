@@ -161,6 +161,7 @@ justify-content-start {
   margin-right: auto;
   height: 75vh;
   width: 90vw;
+  max-width: 1000px;
   border: 10px solid #77DD77;
   border-radius: 10%;
 }
@@ -175,6 +176,7 @@ justify-content-start {
   transform: translate(-50%, -50%);
   height: 75vh;
   width: 90vw;
+  max-width: 1000px;
   background-color: white;
   border: 10px solid #77DD77;
   border-radius: 10%;
@@ -191,6 +193,7 @@ justify-content-start {
   transform: translate(-50%, -50%);
   height: 75vh;
   width: 90vw;
+  max-width: 1000px;
   background-color: white;
   border: 10px solid #77DD77;
   border-radius: 10%;
@@ -198,10 +201,12 @@ justify-content-start {
 }
 .modify-remedy textarea {
   width: 80vw;
+  max-width: 950px;
   height: 20vh;
 }
 .modify-remedy input {
   width: 80vw;
+  max-width: 950px;
 }
 .view-details div {
   display: block;
@@ -240,10 +245,12 @@ justify-content-start {
 } */
 .modal textarea {
   width: 80vw;
+  max-width: 950px;
   height: 20vh;
 }
 .modal input {
   width: 80vw;
+  max-width: 950px;
 }
 a {
   font-style: none;
