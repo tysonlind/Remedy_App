@@ -1,17 +1,17 @@
-# Basic Mern Template
+# Remedy Application README
+
+![Homepage](./src/client/src/images/screenshot1.jpg)
+![QueryPage](./src/client/src/images/screenshot2.jpg)
+![Add Remedies](./src/client/src/images/screenshot3.jpg)
+![Update Remedies](./src/client/src/images/screenshot4.jpg)
+![View Remedy Details](./src/client/src/images/screenshot5.jpg)
 
 ## Getting Started
 
-To get started, select the "Use this template" option from this github page.
-
-Once you create a repository on your account from this template, clone the project.
-
-Now that you have a copy of this project locally, follow the instructions for frontend and backend setup:
-
-- [Frontend Setup](./src/client/README.md)
-- [Backend Setup](./src/server/README.md)
-
-Happy Hacking!
+1. Navigate to the src/client and src/server folders in your terminal and run "npm install" in each one. This should install dependencies.
+2. Install the SQL dump files for the database into your MySQL Workbench database management system.
+3. Navigate to the src/client and src/server folders in your terminal and run "npm start" in each one.
+4. Open your browser to http://localhost:3000
 
 ## Project Structure
 
@@ -31,4 +31,5 @@ You can also contact any contributors with details.
 
 ## Contributors
 
-[Ben Bryant](https://github.com/Bryantellius)
+[Ben Bryant](https://github.com/Bryantellius) MERN Template
+[Tyson Lind](https://github.com/tysonlind) Application Creator

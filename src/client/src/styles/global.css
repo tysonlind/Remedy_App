@@ -80,7 +80,7 @@ color: white;
   list-style: none;
 }
 .green {
-  color: #77DD77;
+  color: #4BD863;
 }
 .red {
   color: #FF6961;
@@ -100,7 +100,7 @@ h2 {
 }
 hr {
   width: 80%;
-  border-color: #77DD77;
+  border-color: rgb(199,205,205);
 }
 img {
   height: 200px;
@@ -167,7 +167,7 @@ justify-content-start {
   height: 75vh;
   width: 90vw;
   max-width: 1000px;
-  border: 10px solid #77DD77;
+  border: 10px solid rgb(199,205,205);
   border-radius: 10%;
 }
 .view-details {
@@ -183,7 +183,7 @@ justify-content-start {
   width: 90vw;
   max-width: 1000px;
   background-color: white;
-  border: 10px solid #77DD77;
+  border: 10px solid rgb(199,205,205);
   border-radius: 10%;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.75), 0px 0px 40px rgba(0,0,0,0.75), 0px 0px 80px rgba(0,0,0,0.5);
 }
@@ -200,7 +200,7 @@ justify-content-start {
   width: 90vw;
   max-width: 1000px;
   background-color: white;
-  border: 10px solid #77DD77;
+  border: 10px solid rgb(199,205,205);
   border-radius: 10%;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.75), 0px 0px 40px rgba(0,0,0,0.75), 0px 0px 80px rgba(0,0,0,0.5);
 }
@@ -231,7 +231,7 @@ justify-content-start {
   right: 5%;
 }
 .top-right button {
-  background-color: #77DD77;
+  background-color: rgb(199,205,205);
   font-weight: 800;
   border: 2px solid green;
   height: 50px;
@@ -260,10 +260,10 @@ justify-content-start {
 a {
   font-style: none;
   text-decoration: none;
-  color: #77DD77;
+  color: rgb(199,205,205);
 }#273B42
 a:active {
-  color: #77DD77;
+  color: rgb(199,205,205);
 }
 .ff-column-100 {
   max-height: max-content;
@@ -277,6 +277,7 @@ a:active {
 }
 .footer p {
   font-size: 0.75rem;
+  color: rgb(199,205,205);
 }
 .font-weight-800 {
   font-weight: 800;
@@ -346,7 +347,7 @@ table {
 .top-center h1 {
   padding-bottom: 10px;
   margin: 0;
-  color: #77DD77;
+  color: rgb(199,205,205);
   text-shadow: 0px 3px 3px rgba(0,0,0,0.7);
 }
 h3 {
@@ -360,8 +361,8 @@ h3 {
 .createBtn {
   height: 50px;
   font-weight: 800;
-  background-color:#77DD77;
-  border: 3px solid green;
+  background-color:rgb(199,205,205);
+  border: 3px solid black;
   border-radius: 10px;
 }
 .query-styling {
