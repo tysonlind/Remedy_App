@@ -42,7 +42,7 @@ event.preventDefault();
 
   return (
     <div className="modal d-flex justify-content-center wrap align-items-center">
-      <h3>Add a Remedy</h3>
+      <h2 className="add-remedy-header">Add a Remedy</h2>
         <form onSubmit={onSubmit}>
           <div>
             <div>
