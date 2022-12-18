@@ -1,15 +1,11 @@
 # Basic MERN Template - Backend
 
-## Getting Started
+## Running this Application
 
-New to this template? Here's how to get started:
-
-1. Open your terminal to `src/server`
-2. Run `npm install`
-3. Start the development server with `npm start`
-4. Your express server will be running at [http://localhost:8080](http://localhost:8080)
-5. Read through the [project structure](#project-structure) below to get a better understanding about where and how to go about developing your backend.
-6. Happy Hacking!
+1. Navigate to the src/client and src/server folders in your terminal and run "npm install" in each one. This should install dependencies.
+2. Install the SQL dump files for the database into your MySQL Workbench database management system.
+3. Navigate to the src/client and src/server folders in your terminal and run "npm start" in each one.
+4. Open your browser to http://localhost:3000
 
 ## Project Structure
 
@@ -36,6 +32,5 @@ New to this template? Here's how to get started:
 
 ## Environment Variables
 
-There is a `.env.template` file that models the `.env` file and variables you will need to create to start.
+There is a `.env.template` file that models the `.env` file and variables. You will need to modify the .env file to match the correct setting to access your local MySQL server.
 
-Create a `.env` file based on the template file, and provide the appropriate values for the preset variables.

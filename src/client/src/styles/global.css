@@ -36,7 +36,7 @@ body {
 .header {
 min-height: 12vw;
 max-height: 15vw;
-background-color: #77DD77;
+background-color: rgb(199,205,205);
 }
 .header h1 {
 margin-top: 0;
@@ -119,6 +119,11 @@ img {
 .flex-child p {
   margin-top: 5px;
   margin-bottom: 5px;
+  color: rgb(0,0,0);
+}
+.flex-child img {
+  height: 200px;
+  width: 300px;
 }
 .dw-75 {
   width:75%;
@@ -285,10 +290,10 @@ a:active {
 table {
   font-size: 0.75em;
   width: 90vw;
-  border: 1px solid black;
+  border: none;
 }
 .delete {
-  background-color: #FF6961;
+  background-color: #FA2F57;
   border: 2px solid #800500;
   border-radius: 10%;
   height: 40px;
@@ -297,8 +302,8 @@ table {
   font-size: 1em;
 }
 .modify {
-  background-color: #FDFD96;
-  border: 2px solid #DE970B;
+  background-color: #FCAE00;
+  border: 2px solid #b17807;
   border-radius: 10%;
   height: 40px;
   width: 60px;
@@ -318,12 +323,12 @@ table {
   padding-left: 10px;
 }
 .info {
-  background-color: #77DD77;
-  border: 2px solid green;
-  color: white;
+  background-color: rgb(199,205,205);
+  border: none;
+  color: black;
   border-radius: 10%;
-  height: 40px;
-  width: 60px;
+  height: 30px;
+  width: 50px;
   font-weight: 600;
   font-size: 1em;
 }
@@ -358,4 +363,12 @@ h3 {
   background-color:#77DD77;
   border: 3px solid green;
   border-radius: 10px;
+}
+.query-styling {
+  background-color: rgb(255,78,62);
+  color: white;
+  font-weight: 600;
+}
+.theader-styling {
+  background-color: rgb(199,205,205);
 }

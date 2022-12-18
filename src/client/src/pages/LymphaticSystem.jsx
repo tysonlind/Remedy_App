@@ -72,7 +72,7 @@ export default function Lymphnodes() {
           onClose={() => setOpenModify(false)}
         />
         <table>
-          <tr>
+          <tr className="theader-styling">
             <th>View</th>
             <th>Name</th>
             <th>Affects</th>
@@ -84,7 +84,7 @@ export default function Lymphnodes() {
           {remedies.length > 0 ? (
             remedies.map((item) => {
               return (
-                <tr>
+                <tr className="query-styling">
                   <td>
                     <button
                       className="info"

@@ -15,8 +15,10 @@ function Homepage() {
                   <span className="red font-weight-400">family</span>
                 </span>
               </h2>
+              
             </div>
           <Organs />
+          <br />
           <AddRemedyButton />
         </div>
     
