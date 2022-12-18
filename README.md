@@ -1,9 +1,13 @@
 # Remedy Application README
-
+Homepage
 ![Homepage](https://user-images.githubusercontent.com/23481564/208271990-c640aaf9-8fe1-4a05-afed-ecc3b86938af.PNG)
+Query Page
 ![QueryPage](https://user-images.githubusercontent.com/23481564/208271995-855b19e7-1df2-44df-9cf3-5b7bd11c0f76.PNG)
+Add Remedies Page
 ![Add Remedies](https://user-images.githubusercontent.com/23481564/208272000-a64f19c4-5538-4585-bc71-55db61d07f5a.PNG)
+Update Remedies Page
 ![Update Remedies](https://user-images.githubusercontent.com/23481564/208272011-53e57dfa-01fc-4800-acf9-f397feaf9daf.PNG)
+View Remedies Page
 ![View Remedy Details](https://user-images.githubusercontent.com/23481564/208272020-f340317f-3b06-4f3c-95a1-497e2a8c5e7f.PNG)
 
 ## Getting Started
