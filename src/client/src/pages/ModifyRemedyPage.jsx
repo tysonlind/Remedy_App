@@ -149,10 +149,10 @@ export default function ModifyRemedyPage({ open, onClose, id }) {
                       />
                     </div>
                   </div>
-                  <div> 
-                    <a href="/">                 
+                  <div>
+                    <a href="/">
                       <button
-                         type="button"
+                        type="button"
                         className="modifyBtn"
                         onClick={() => {
                           updateRemedy(updateData);
@@ -161,7 +161,7 @@ export default function ModifyRemedyPage({ open, onClose, id }) {
                       >
                         Save Changes
                       </button>
-                      </a>
+                    </a>
                   </div>
                 </form>
                 <div className="top-right">

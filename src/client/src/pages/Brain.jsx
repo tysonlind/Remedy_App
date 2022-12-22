@@ -5,7 +5,6 @@ import brain from "../images/brain.png";
 import ViewDetails from "./ViewDetails.jsx";
 import ModifyRemedyPage from "./ModifyRemedyPage";
 
-
 export default function Brain() {
   //the state of the list of remeides for this component
   const [remedies, setRemedies] = useState("");
@@ -16,7 +15,7 @@ export default function Brain() {
   //A state that captures the ID of the current item that should be fetched and rendered to the view or modify modal
   let [queryID, setQueryID] = useState("");
 
-  //queries the database for matching items based on the url param
+  //queries the database for matching items based on the url parameter
   async function getRemedies() {
     try {
       let res = await fetch("http://localhost:8080/brain", {
@@ -28,7 +27,8 @@ export default function Brain() {
       console.error(e);
     }
   }
-//deletes entries from DB based on the ID
+  //deletes entries from DB based on the ID
+  //input type: Number
   async function deleteRemedy(id) {
     try {
       await fetch("http://localhost:8080/delete-remedy", {
@@ -45,11 +45,11 @@ export default function Brain() {
       console.error(e);
     }
   }
-//initial load of getRemedies when page renders
+  //initial load of getRemedies when page renders
+  //being used similar to ComponentDidMount()
   useEffect(() => {
     getRemedies();
   }, []);
-
 
   return (
     <div className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
@@ -91,7 +91,7 @@ export default function Brain() {
                       className="info"
                       value={item.remedies_id}
                       onClick={(e) => {
-                        setQueryID(e.target.value)
+                        setQueryID(e.target.value);
                         setOpenModal(true);
                       }}
                     >

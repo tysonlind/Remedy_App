@@ -5,7 +5,6 @@ import LungsImg from "../images/lungs.png";
 import ViewDetails from "./ViewDetails.jsx";
 import ModifyRemedyPage from "./ModifyRemedyPage";
 
-
 export default function Lungs() {
   //the state of the list of remeides for this component
   const [remedies, setRemedies] = useState("");
@@ -44,11 +43,11 @@ export default function Lungs() {
       console.error(e);
     }
   }
-
+  //initial load of getRemedies when page renders
+  //being used similar to ComponentDidMount()
   useEffect(() => {
     getRemedies();
   }, []);
-
 
   return (
     <div className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
@@ -90,7 +89,7 @@ export default function Lungs() {
                       className="info"
                       value={item.remedies_id}
                       onClick={(e) => {
-                        setQueryID(e.target.value)
+                        setQueryID(e.target.value);
                         setOpenModal(true);
                       }}
                     >
