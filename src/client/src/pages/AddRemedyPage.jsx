@@ -13,7 +13,6 @@ export default function AddRemedyPage(props) {
   const [dosage, setDosage] = useState("");
   //Posts to remedies.Description
   const [description, setDescription] = useState("");
-  console.log(affectedOrgans);
 
   //Object container to formats the POST data for easy readability and testability that it's receiving the correct variables
   const postData = {
@@ -92,7 +91,8 @@ export default function AddRemedyPage(props) {
             <label htmlFor="affectedOrgans">Affected Organs:</label>
           </div>
           <div>
-            <select
+            <input
+              type="text"
               placeholder="lymphatic system, brain, etc..."
               name="affectedOrgans"
               id="affectedOrgans"
@@ -100,15 +100,7 @@ export default function AddRemedyPage(props) {
               onChange={(event) => {
                 setAffectedOrgans(event.target.value);
               }}
-            >
-              <option value="brain">Brain</option>
-              <option value="heart">Heart</option>
-              <option value="liver">Liver</option>
-              <option value="kidneys">Kidneys</option>
-              <option value="lungs">Lung</option>
-              <option value="intestines">Intestines</option>
-              <option value="lymphnodes">Lymph Nodes</option>
-              </select>
+            />
           </div>
         </div>
         <div>
