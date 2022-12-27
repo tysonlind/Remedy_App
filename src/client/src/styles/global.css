@@ -9,6 +9,7 @@ html {
   top: 0;
   font-size: calc(10px + 2vmin);
   background-color: white;
+  width: 100vw;
 }
 
 body {
@@ -36,6 +37,7 @@ body {
 .header {
   min-height: 12vw;
   max-height: 15vw;
+  width: 100vw;
   background-color: rgb(199, 205, 205);
 }
 .header h1 {
@@ -44,6 +46,38 @@ body {
   font-size: 2em;
   color: white;
 }
+table {
+  font-size: 0.75em;
+  width: 90vw;
+  border: none;
+}
+.modify-remedy {
+  z-index: 10;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 75vh;
+  width: 90vw;
+  max-width: 1000px;
+  background-color: white;
+  border: 10px solid rgb(199, 205, 205);
+  border-radius: 10%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75), 0px 0px 40px rgba(0, 0, 0, 0.75),
+    0px 0px 80px rgba(0, 0, 0, 0.5);
+}
+.modify-remedy textarea {
+  width: 80vw;
+  max-width: 950px;
+  height: 20vh;
+}
+.modify-remedy input {
+  width: 80vw;
+  max-width: 950px;
+}
 @media (max-width: 550px) {
   /* For mobile phones: */
   .header h1 {
@@ -51,6 +85,20 @@ body {
   }
   .logo-img img {
     display: none;
+  }
+  table {
+    width: 350px;
+  }
+  td {
+    width: 10px;
+  }
+  .modify-remedy h1 {
+    font-size: 1em;
+  }
+  .modify{
+    width: 20px;
+    height: 10px;
+    font-size:0.25em;
   }
 }
 @media (min-width: 750px) {
@@ -189,33 +237,7 @@ justify-content-start {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75), 0px 0px 40px rgba(0, 0, 0, 0.75),
     0px 0px 80px rgba(0, 0, 0, 0.5);
 }
-.modify-remedy {
-  z-index: 10;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 75vh;
-  width: 90vw;
-  max-width: 1000px;
-  background-color: white;
-  border: 10px solid rgb(199, 205, 205);
-  border-radius: 10%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75), 0px 0px 40px rgba(0, 0, 0, 0.75),
-    0px 0px 80px rgba(0, 0, 0, 0.5);
-}
-.modify-remedy textarea {
-  width: 80vw;
-  max-width: 950px;
-  height: 20vh;
-}
-.modify-remedy input {
-  width: 80vw;
-  max-width: 950px;
-}
+
 .view-details div {
   display: block;
 }
@@ -281,11 +303,7 @@ a {
 .page-imgs img {
   height: 300px;
 }
-table {
-  font-size: 0.75em;
-  width: 90vw;
-  border: none;
-}
+
 .delete {
   background-color: #fa2f57;
   border: 2px solid #800500;
@@ -372,4 +390,7 @@ h3 {
   font-weight: 600;
   padding-top: 0;
   padding-bottom: 10px;
+}
+select {
+  width: 100%;
 }
