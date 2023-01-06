@@ -52,7 +52,7 @@ export default function Kidneys() {
   return (
     <div className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
       <div>
-        <img alt="Liver" src={LiverImg} />
+        <img alt="Liver"  className="category-image" src={LiverImg} />
       </div>
       <div className="organ-heading">
         <h1>
@@ -139,7 +139,7 @@ export default function Kidneys() {
               );
             })
           ) : (
-            <p>No entries</p>
+            <p className="white">No entries</p>
           )}
         </table>
       </div>

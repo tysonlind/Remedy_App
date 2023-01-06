@@ -52,7 +52,7 @@ export default function Heart() {
   return (
     <div className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
       <div>
-        <img alt="Brain" src={HeartImg} />
+        <img alt="heart"  className="category-image" src={HeartImg} />
       </div>
       <div className="organ-heading">
         <h1>
@@ -139,7 +139,7 @@ export default function Heart() {
               );
             })
           ) : (
-            <p>No entries</p>
+            <p className="white">No entries</p>
           )}
         </table>
       </div>

@@ -83,9 +83,7 @@ export default function ViewDetails({ open, onClose, id }) {
                 <div className="top-right">
                   <button onClick={onClose}>X</button>
                 </div>
-                <div className="top-center">
-                  <h1>Remedy</h1>
-                </div>
+                
               </div>
             );
           })

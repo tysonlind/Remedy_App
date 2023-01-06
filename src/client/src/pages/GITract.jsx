@@ -52,7 +52,7 @@ export default function Intestines() {
   return (
     <div className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
       <div>
-        <img alt="Brain" src={GIImage} />
+        <img alt="intestines"  className="category-image" src={GIImage} />
       </div>
       <div className="organ-heading">
         <h1>
@@ -139,7 +139,7 @@ export default function Intestines() {
               );
             })
           ) : (
-            <p>No entries</p>
+            <p className="white">No entries</p>
           )}
         </table>
       </div>

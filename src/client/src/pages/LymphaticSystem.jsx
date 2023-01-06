@@ -52,7 +52,7 @@ export default function Lymphnodes() {
   return (
     <div className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
       <div>
-        <img alt="Lungs" src={LymphnodesImg} />
+        <img alt="Lungs"  className="category-image" src={LymphnodesImg} />
       </div>
       <div className="organ-heading">
         <h1>

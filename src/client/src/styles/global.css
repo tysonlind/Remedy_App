@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lobster&effect=3d");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
   box-sizing: border-box;
@@ -8,8 +9,27 @@ html {
   position: absolute;
   top: 0;
   font-size: calc(10px + 2vmin);
-  background-color: white;
+  background-color: var(--primary-color);
   width: 100vw;
+}
+
+:root {
+  --primary-color: rgb(255,255,255);
+  --secondary-color: rgb(0,0,0);
+  --header-color: rgb(230,230,230);
+  --border-color: rgb(240,240,240);
+  --input-color: rgb(240,240,240);
+  --button-color: rgb(210,210,210);
+  --query-table-color: rgb(138, 233, 166);
+}
+.dark-theme {
+  --primary-color: rgb(0,0,0);
+  --secondary-color: rgb(255,255,255);
+  --header-color: rgb(25,25,25);
+  --border-color: rgb(20,20,20);
+  --input-color: rgb(20,20,20);
+  --button-color: rgb(25,25,25);
+  --query-table-color: rgb(138, 233, 166);
 }
 
 body {
@@ -17,13 +37,15 @@ body {
   margin: 0;
   top: 0;
   width: 100vw;
-  background-color: white;
+  height: 100%;
+  background-color: var(--primary-color);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .root {
   background-color: white;
 }
@@ -38,13 +60,17 @@ body {
   min-height: 12vw;
   max-height: 15vw;
   width: 100vw;
-  background-color: rgb(199, 205, 205);
+  background-color: var(--header-color);
+  box-shadow: 1px 0px 5px black;
+}
+.white {
+  color: white;
 }
 .header h1 {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 2em;
-  color: white;
+  color:#4bd863;
 }
 table {
   font-size: 0.75em;
@@ -53,18 +79,18 @@ table {
 }
 .modify-remedy {
   z-index: 10;
-  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  position: absolute;
-  top: 20%;
+  position: fixed;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 75vh;
   width: 90vw;
   max-width: 1000px;
-  background-color: white;
-  border: 10px solid rgb(199, 205, 205);
+  color: white;
+  background-color: var(--primary-color);
+  border: 10px solid var(--border-color);
   border-radius: 10%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75), 0px 0px 40px rgba(0, 0, 0, 0.75),
     0px 0px 80px rgba(0, 0, 0, 0.5);
@@ -73,40 +99,57 @@ table {
   width: 80vw;
   max-width: 950px;
   height: 20vh;
+  background-color: var(--input-color);
+  border-radius: 0.625rem;
+  font-weight: 600;
+  padding: 0 3.5rem 0 0.5rem;
+  color: var(--secondary-color);
 }
 .modify-remedy input {
   width: 80vw;
   max-width: 950px;
+  height: 2em;
+  font-weight: 600;
+  background-color: var(--primary-color);
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 0.5rem;
+  color:var(--secondary-color);
 }
-@media (max-width: 550px) {
-  /* For mobile phones: */
-  .header h1 {
-    font-size: 1.25em;
-  }
-  .logo-img img {
-    display: none;
-  }
-  table {
-    width: 350px;
-  }
-  td {
-    width: 10px;
-  }
-  .modify-remedy h1 {
-    font-size: 1em;
-  }
-  .modify{
-    width: 20px;
-    height: 10px;
-    font-size:0.25em;
-  }
+.top-right {
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
 }
-@media (min-width: 750px) {
-  /* For desktops */
-  .header h1 {
-    font-size: 3em;
-  }
+.top-right button {
+  background-color: var(--button-color);
+  border: none;
+  color: var(--secondary-color);
+  font-weight: 800;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
+.modifyBtn {
+  height: 40px;
+  width: 120px;
+  background-color:rgb(80, 80, 80);
+  color: var(--secondary-color);
+  font-weight: 600;
+  border: none;
+  border-radius: 20px;
+}
+.category-image {
+ padding: none;
+}
+.homepage-img {
+  height: 200px;
+  min-height: 100px;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-bottom: 10px;
+}
+
+
 .d-flex {
   display: flex;
 }
@@ -127,7 +170,7 @@ table {
   list-style: none;
 }
 .green {
-  color: #4bd863;
+  color: rgb(75, 216, 99);
 }
 .red {
   color: #ff6961;
@@ -140,7 +183,13 @@ h2 {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
+}
+h3 {
+  padding-bottom: 20px;
+  padding-top: 0;
+  margin: 0;
+  color: rgb(220,220,220);
 }
 .font-weight-400 {
   font-weight: 600;
@@ -149,13 +198,7 @@ hr {
   width: 80%;
   border-color: rgb(199, 205, 205);
 }
-img {
-  height: 200px;
-  min-height: 100px;
-  padding-right: 40px;
-  padding-left: 40px;
-  padding-bottom: 10px;
-}
+
 .wrap {
   flex-wrap: wrap;
 }
@@ -166,12 +209,14 @@ img {
 .flex-child p {
   margin-top: 5px;
   margin-bottom: 5px;
-  color: rgb(0, 0, 0);
+  color: var(--secondary-color);
+  
 }
+/*
 .flex-child img {
   height: 200px;
   width: 300px;
-}
+} */
 .dw-75 {
   width: 75%;
 }
@@ -193,11 +238,9 @@ justify-content-start {
 }
 .logo {
   font-family: "Lobster";
-  font-size: 1rem;
-  text-shadow: 0.5px 0.5px 0px rgba(240, 240, 240, 1),
-    1px 1px 0px rgba(200, 200, 200, 1), 1.5px 1.5px 0px rgba(140, 140, 140, 1),
-    2px 2px 0px rgba(100, 100, 100, 1), 2.5px 2.5px 0px rgba(50, 50, 50, 1),
-    3px 3px 0px rgba(0, 0, 0, 0.8);
+  font-size: 1.25rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    
 }
 
 .inherit-height {
@@ -216,23 +259,25 @@ justify-content-start {
   height: 75vh;
   width: 90vw;
   max-width: 1000px;
-  border: 10px solid rgb(199, 205, 205);
+  border: 10px solid rgb(80, 80, 80);
   border-radius: 10%;
+  color: white;
 }
 .view-details {
   z-index: 10;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  position: absolute;
-  top: 20%;
+  position: fixed;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 75vh;
   width: 90vw;
   max-width: 1000px;
-  background-color: white;
-  border: 10px solid rgb(199, 205, 205);
+  background-color: var(--primary-color);
+  color: white;
+  border: 10px solid var(--border-color);
   border-radius: 10%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75), 0px 0px 40px rgba(0, 0, 0, 0.75),
     0px 0px 80px rgba(0, 0, 0, 0.5);
@@ -248,29 +293,27 @@ justify-content-start {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--primary-color);
 }
-.top-right {
-  position: absolute;
-  top: 2.5%;
-  right: 5%;
-}
-.top-right button {
-  background-color: rgb(199, 205, 205);
-  font-weight: 800;
-  border: 2px solid green;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-}
+
 .modal textarea {
   width: 80vw;
   max-width: 950px;
   height: 20vh;
+  background-color:var(--input-color);
+  color: var(--secondary-color);
+  border-radius: 0.625rem;
+  padding: 0 3.5rem 0 0.5rem;
 }
 .modal input {
   width: 80vw;
   max-width: 950px;
+  border-radius: 1.625rem;
+  padding: 0 3.5rem 0 0.5rem;
+  height: 2em;
+  font-weight: 600;
+  color: var(--secondary-color);
+  background-color: var(--input-color);
 }
 a {
   font-style: none;
@@ -301,7 +344,7 @@ a {
   padding-top: 40px;
 }
 .page-imgs img {
-  height: 300px;
+  height: 3em;
 }
 
 .delete {
@@ -325,8 +368,12 @@ a {
 .margin-left-10 {
   margin-left: 10px;
 }
+.organ-heading {
+  padding-left: 40px;
+}
 .organ-heading h1 {
-  font-family: "Roboto";
+  font-family: 'Roboto', sans-serif;
+  color: var(--secondary-color);
 }
 .logo-img img {
   height: 50px;
@@ -335,12 +382,12 @@ a {
   padding-left: 10px;
 }
 .info {
-  background-color: rgb(199, 205, 205);
+  background-color: rgb(66, 125, 252);
   border: none;
-  color: black;
+  color: var(--secondary-color);
   border-radius: 10%;
-  height: 30px;
-  width: 50px;
+  height: 40px;
+  width: 60px;
   font-weight: 600;
   font-size: 1em;
 }
@@ -361,10 +408,7 @@ a {
   color: rgb(199, 205, 205);
   text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.7);
 }
-h3 {
-  padding: 0;
-  margin: 0;
-}
+
 .top-20-down {
   position: relative;
   top: 20px;
@@ -372,17 +416,19 @@ h3 {
 .createBtn {
   height: 50px;
   font-weight: 800;
-  background-color: rgb(199, 205, 205);
-  border: 3px solid black;
+  background-color: var(--button-color);
+  border: none;
+  color: white;
   border-radius: 10px;
 }
 .query-styling {
-  background-color: rgb(255, 78, 62);
-  color: white;
+  background-color: var(--query-table-color);
+  color: var(--secondary-color);
   font-weight: 600;
 }
 .theader-styling {
-  background-color: rgb(199, 205, 205);
+  background-color: var(--header-color);
+  color: var(--secondary-color);
 }
 .add-remedy-header {
   color: rgb(199, 205, 205);
@@ -390,4 +436,108 @@ h3 {
   font-weight: 600;
   padding-top: 0;
   padding-bottom: 10px;
+}
+.toggle-button {
+  width: 2em;
+  height: 2em;
+}
+@media (max-width: 550px) {
+  /* For mobile phones: */
+  .header h1 {
+    font-size: 1.75em;
+  }
+  .logo-img img {
+    display: none;
+  }
+  table {
+    width: 350px;
+  }
+  td {
+    width: 10px;
+  }
+  .modify-remedy h1 {
+    font-size: 1em;
+  }
+  .modify{
+    width: 40px;
+    height: 40px;
+    font-size:1em;
+  }
+  .delete {
+    width: 40px;
+    height: 40px;
+    font-size: 1em;
+  }
+  .prio-4 {
+    display:none;
+  }
+  .prio-3 {
+    display: none;
+  }
+  .prio-6 {
+    display: none;
+  }
+  .top-right button {
+    background-color: var(--button-color);
+    border: none;
+    color: var(--secondary-color);
+    font-weight: 800;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  .top-right {
+    position: absolute;
+    top: -1%;
+    right: -1%;
+  }
+  .homepage-img {
+    height: 5em;
+    min-height: 5em;
+    width: 8em;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+  }
+  .toggle {
+    position: absolute;
+    right: 20px;
+  }
+  .toggle img {
+    width: 1.5em;
+    height: 1.5em;
+    opacity: 0.5;
+  }
+  .info {
+    background-color: rgb(66, 125, 252);
+    border: none;
+    color: var(--secondary-color);
+    border-radius: 10%;
+    height: 40px;
+    width: 40px;
+    font-weight: 600;
+    font-size: 1em;
+  }
+  .organ-heading{
+    font-size: 0.5em;
+    padding-left: 10px;
+  }
+ 
+}
+
+@media (min-width: 750px) {
+  /* For desktops */
+  .header h1 {
+    font-size: 3em;
+  }
+  .toggle {
+    position: absolute;
+    right: 4em;
+  }
+  .toggle img {
+    width: 2em;
+    height: 2em;
+    opacity: 0.5;
+  }
+ 
 }

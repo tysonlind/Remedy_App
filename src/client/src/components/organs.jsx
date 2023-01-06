@@ -14,43 +14,43 @@ export default function Organs() {
       <div className="flex-child">
         <p>Brain</p>
         <Link to="/brain">
-          <img alt="Brain" src={brain} />
+          <img alt="Brain" className="homepage-img" src={brain} />
         </Link>
       </div>
       <div className="flex-child">
         <p>Heart</p>
         <Link to="/heart">
-          <img alt="Heart" src={heart} />
+          <img alt="Heart" className="homepage-img" src={heart} />
         </Link>
       </div>
       <div className="flex-child">
         <p>Liver</p>
         <Link to="/liver">
-          <img alt="Liver" src={liver} />
+          <img alt="Liver" className="homepage-img" src={liver} />
         </Link>
       </div>
       <div className="flex-child">
         <p>Kidneys</p>
         <Link to="/kidneys">
-          <img alt="Kidneys" src={kidneys} />
+          <img alt="Kidneys" className="homepage-img" src={kidneys} />
         </Link>
       </div>
       <div className="flex-child">
         <p>Lungs</p>
         <Link to="/lungs">
-          <img alt="Lungs" src={lungs} />
+          <img alt="Lungs" className="homepage-img" src={lungs} />
         </Link>
       </div>
       <div className="flex-child">
         <p>Intestines</p>
         <Link to="/intestines">
-          <img alt="GI tract" src={giTract} />
+          <img alt="GI tract" className="homepage-img" src={giTract} />
         </Link>
       </div>
       <div className="flex-child">
         <p>Lymphnodes</p>
         <Link to="/lymphnodes">
-          <img alt="Lymphatic System" src={lymphaticSystem} />
+          <img alt="Lymphatic System" className="homepage-img" src={lymphaticSystem} />
         </Link>
       </div>
     </div>

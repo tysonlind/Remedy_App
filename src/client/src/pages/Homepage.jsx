@@ -10,8 +10,11 @@ function Homepage() {
             Share alternative medicine with{" "}
             <span className="blue font-weight-400">friends</span> and{" "}
             <span className="red font-weight-400">family</span>
-          </span>
+          </span>    
         </h2>
+        <h3>
+        <span className="font-weight-400">Select the organ where you think the problem might be:</span>
+        </h3>
       </div>
       <Organs />
       <br />

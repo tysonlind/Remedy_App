@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
+import moon from "./images/moon.png";
 import {
   Brain,
   Heart,
@@ -11,7 +12,6 @@ import {
   AddRemedyPage,
   Homepage,
 } from "./pages/index.js";
-import leaf from "./images/leaf.png";
 
 function App() {
   //Application entry point
@@ -23,8 +23,8 @@ function App() {
             <h1>Remedy</h1>
           </Link>
         </div>
-        <div className="logo-img">
-          <img alt="logo leaf" src={leaf} />
+        <div className="toggle">
+            <img src={moon} alt="toggle website color theme" className="toggle-button"/>
         </div>
       </div>
       <div className="d-block justify-content-center text-align-center vw100 ff-column-100 align-items-center">

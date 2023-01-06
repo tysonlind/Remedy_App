@@ -166,10 +166,7 @@ export default function ModifyRemedyPage({ open, onClose, id }) {
                 </form>
                 <div className="top-right">
                   <button onClick={onClose}>X</button>
-                </div>
-                <div className="top-center">
-                  <h1>Update Remedy</h1>
-                </div>
+                </div>        
               </>
             );
           })}

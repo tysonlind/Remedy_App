@@ -54,7 +54,7 @@ export default function Brain() {
   return (
     <div className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
       <div>
-        <img alt="Brain" src={brain} />
+        <img alt="Brain" className="category-image" src={brain} />
       </div>
       <div className="organ-heading">
         <h1>
@@ -74,19 +74,19 @@ export default function Brain() {
         />
         <table>
           <tr className="theader-styling">
-            <th>View</th>
-            <th>Name</th>
-            <th>Affects</th>
-            <th>Dosage</th>
-            <th>Use Cases</th>
-            <th>Description</th>
-            <th>Edit/Delete</th>
+            <th className="prio-1">View</th>
+            <th className="prio-2">Name</th>
+            <th className="prio-3">Affects</th>
+            <th className="prio-4">Dosage</th>
+            <th className="prio-5">Use Cases</th>
+            <th className="prio-6">Description</th>
+            <th className="prio-7">Edit/Delete</th>
           </tr>
           {remedies.length > 0 ? (
             remedies.map((item) => {
               return (
                 <tr className="query-styling">
-                  <td>
+                  <td className="prio-1">
                     <button
                       className="info"
                       value={item.remedies_id}
@@ -98,24 +98,24 @@ export default function Brain() {
                       info
                     </button>
                   </td>
-                  <td>{item.Name}</td>
-                  <td>
+                  <td className="prio-2">{item.Name}</td>
+                  <td className="prio-3">
                     {item.AffectedOrgans.length > 10
                       ? `${item.AffectedOrgans.slice(0, 10)}...`
                       : `${item.AffectedOrgans}`}
                   </td>
-                  <td>{item.Dosage ? `${item.Dosage}` : "1 drop/ 5 lbs"}</td>
-                  <td>
+                  <td className="prio-4">{item.Dosage ? `${item.Dosage}` : "1 drop/ 5 lbs"}</td>
+                  <td className="prio-5">
                     {item.Uses.length > 10
                       ? `${item.Uses.slice(0, 10)}...`
                       : `${item.Uses}`}
                   </td>
-                  <td>
+                  <td className="prio-6">
                     {item.Description.length > 10
                       ? `${item.Description.slice(0, 10)}...`
                       : `${item.Description}`}
                   </td>
-                  <td>
+                  <td className="prio-7">
                     <button
                       className="modify"
                       value={item.remedies_id}
