@@ -49,6 +49,8 @@ export default function AddRemedyPage(props) {
   }
 
   return (
+    <>
+    <br />
     <div className="modal d-flex justify-content-center wrap align-items-center">
       <h2 className="add-remedy-header">Add a Remedy</h2>
       <form onSubmit={onSubmit}>
@@ -152,5 +154,6 @@ export default function AddRemedyPage(props) {
         </div>
       </form>
     </div>
+    </>
   );
 }

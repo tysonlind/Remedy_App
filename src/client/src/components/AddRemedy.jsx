@@ -6,7 +6,7 @@ export default function AddRemedyButton() {
   return (
     <div className="add-remedy d-flex align-items-center justify-content-center text-align-center vh10">
       <div className="green">
-        <h2>add a remedy</h2>
+        <h2>Add a remedy</h2>
       </div>
       <div className="">
         <Link to="/add-remedy">

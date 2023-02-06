@@ -23,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/Bryantellius/basic-mern-template/issues"
   },
-  "homepage": "https://github.com/Bryantellius/basic-mern-template#readme"
+  "homepage": "https://github.com/Bryantellius/basic-mern-template#readme",
+  "dependencies": {
+    "jest": "^29.3.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.6.0"
+  }
 }

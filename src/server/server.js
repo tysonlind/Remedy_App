@@ -44,7 +44,7 @@ app.use("/", router);
 /**
  * Error handler middleware
  */
-app.use(errorHandler);
+//app.use(errorHandler);
 
 /**
  * Bind the app to a specified port

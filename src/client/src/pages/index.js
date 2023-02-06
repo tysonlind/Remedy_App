@@ -7,6 +7,7 @@ import Kidneys from "./Kidneys.jsx";
 import Intestines from "./GITract.jsx";
 import Homepage from "./Homepage.jsx";
 import AddRemedyPage from "./AddRemedyPage.jsx";
+import Login from "./login.jsx";
 
 export {
   Brain,
@@ -18,4 +19,5 @@ export {
   Intestines,
   AddRemedyPage,
   Homepage,
+  Login,
 };

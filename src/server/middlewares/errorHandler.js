@@ -1,5 +1,5 @@
 //Basic error handling
-export const errorHandler = (err, req, res, next) => {
+export const serverError = (err, req, res, next) => {
     console.error(err);
     res.status(err.status || 500).json({
       name: err.name || "Unknown error",

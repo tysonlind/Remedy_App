@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
-import moon from "./images/moon.png";
+import useLocalStorage from 'use-local-storage';
+import themeChange from './images/toggle-icon.png';
 import {
   Brain,
   Heart,
@@ -11,22 +12,38 @@ import {
   Intestines,
   AddRemedyPage,
   Homepage,
+  Login,
 } from "./pages/index.js";
 
 function App() {
+
+  const [theme, setTheme] = useLocalStorage('theme' ? 'dark' : 'light');
+
+  const switchTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  } 
+
+ 
   //Application entry point
   return (
+    <div className="app" data-theme={theme}>
     <BrowserRouter>
-      <div className="header logo text-align-center align-items-center d-flex justify-content-center wrap">
-        <div>
+      <header>
+        <div id="header-container" className="">
+      <div id="toggle">
+            <img src={themeChange} alt="theme change button" className='toggle-button' onClick={switchTheme} />
+        </div>
+        <div id="logo">
           <Link to="/">
             <h1>Remedy</h1>
           </Link>
         </div>
-        <div className="toggle">
-            <img src={moon} alt="toggle website color theme" className="toggle-button"/>
+        <div id="login">
+          <p className="login">Sign In</p>
         </div>
-      </div>
+        </div>
+      </header>
       <div className="d-block justify-content-center text-align-center vw100 ff-column-100 align-items-center">
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -38,10 +55,12 @@ function App() {
           <Route path="/lungs" element={<Lungs />} />
           <Route path="/intestines" element={<Intestines />} />
           <Route path="/lymphnodes" element={<Lymphnodes />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
       <Footer />
     </BrowserRouter>
+    </div>
   );
 }
 

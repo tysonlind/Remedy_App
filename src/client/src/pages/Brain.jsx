@@ -52,7 +52,7 @@ export default function Brain() {
   }, []);
 
   return (
-    <div className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
+    <div data-testid="brain" className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
       <div>
         <img alt="Brain" className="category-image" src={brain} />
       </div>
@@ -74,7 +74,7 @@ export default function Brain() {
         />
         <table>
           <tr className="theader-styling">
-            <th className="prio-1">View</th>
+            <th className="prio-1">Info</th>
             <th className="prio-2">Name</th>
             <th className="prio-3">Affects</th>
             <th className="prio-4">Dosage</th>
@@ -95,7 +95,7 @@ export default function Brain() {
                         setOpenModal(true);
                       }}
                     >
-                      info
+                      view
                     </button>
                   </td>
                   <td className="prio-2">{item.Name}</td>
