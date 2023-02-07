@@ -8,7 +8,7 @@ export default function Login() {
         <br />
         <div className="login">
             <h1>Login</h1>
-            <div className="container">
+            <div className="login-container">
                 <div className="top">
                     <i class='fab fa-google'></i>
                     <i class='fab fa-facebook-square'></i>

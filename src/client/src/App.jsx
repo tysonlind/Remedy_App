@@ -40,7 +40,7 @@ function App() {
           </Link>
         </div>
         <div id="login">
-          <p className="login">Sign In</p>
+          <p className="login"><Link to="/login">Sign In</Link></p>
         </div>
         </div>
       </header>
