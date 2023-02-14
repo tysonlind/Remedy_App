@@ -8,6 +8,10 @@ import Intestines from "./GITract.jsx";
 import Homepage from "./Homepage.jsx";
 import AddRemedyPage from "./AddRemedyPage.jsx";
 import Login from "./login.jsx";
+import LoginButton from "../components/LoginButton.tsx";
+import LogoutButton from "../components/LogoutButton.tsx";
+import Profile from "./profile.jsx";
+import Approvals from "./approvals.jsx";
 
 export {
   Brain,
@@ -20,4 +24,8 @@ export {
   AddRemedyPage,
   Homepage,
   Login,
+  LoginButton,
+  LogoutButton,
+  Profile,
+  Approvals,
 };

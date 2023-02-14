@@ -4,8 +4,13 @@ import LiverImg from "../images/liver.png";
 
 import ViewDetails from "./ViewDetails.jsx";
 import ModifyRemedyPage from "./ModifyRemedyPage";
+import { useAuth0 } from "@auth0/auth0-react";
+import sadPanda from "../images/sadpanda.png";
 
 export default function Kidneys() {
+  //add isAuthenticated property from Auth0
+  const { isAuthenticated, isLoading } = useAuth0();
+
   //the state of the list of remeides for this component
   const [remedies, setRemedies] = useState("");
   //states that control whether the "view" and "modify" modals are visible, triggered by the button "view" and "modify"
@@ -15,15 +20,17 @@ export default function Kidneys() {
   //A state that captures the ID of the current item that should be fetched and rendered to the view or modify modal
   let [queryID, setQueryID] = useState("");
 
-  async function getRemedies() {
-    try {
-      let res = await fetch("http://localhost:8080/liver", {
-        method: "GET",
-      });
-      let resJson = await res.json();
-      setRemedies(resJson);
-    } catch (e) {
-      console.error(e);
+  async function getRemedies(isAuthenticated) {
+    if (isAuthenticated){
+      try {
+        let res = await fetch("http://localhost:8080/liver", {
+          method: "GET",
+        });
+        let resJson = await res.json();
+        setRemedies(resJson);
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 
@@ -46,10 +53,15 @@ export default function Kidneys() {
   //initial load of getRemedies when page renders
   //being used similar to ComponentDidMount()
   useEffect(() => {
-    getRemedies();
-  }, []);
+    getRemedies(isAuthenticated);
+  }, [isAuthenticated]);
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
 
   return (
+    isAuthenticated ? (
     <div className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
       <div>
         <img alt="Liver"  className="category-image" src={LiverImg} />
@@ -139,10 +151,12 @@ export default function Kidneys() {
               );
             })
           ) : (
-            <p>No entries</p>
+            <p className="text-align-center"><i className="fa-solid fa-box-open"></i>No entries</p>
           )}
         </table>
       </div>
     </div>
-  );
+ ) : (
+  <div className="d-flex justify-content-center align-items-center not-logged-in"><div><img src={sadPanda} alt="you are not logged in" className="sad-panda" /></div><div><p>Oh no! You are not currently signed in... Please sign in to view this page</p></div></div>
+ ) );
 }

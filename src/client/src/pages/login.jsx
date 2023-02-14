@@ -10,11 +10,11 @@ export default function Login() {
             <h1>Login</h1>
             <div className="login-container">
                 <div className="top">
-                    <i class='fab fa-google'></i>
-                    <i class='fab fa-facebook-square'></i>
-                    <i class='fab fa-linkedin'></i>
-                    <i class='fab fa-twitter-square'></i>
-                    <i class='fab fa-apple'></i>
+                    <i className='fab fa-google'></i>
+                    <i className='fab fa-facebook-square'></i>
+                    <i className='fab fa-linkedin'></i>
+                    <i className='fab fa-twitter-square'></i>
+                    <i className='fab fa-apple'></i>
                 </div>
                 <p className="divider"><span>Or</span></p>
                 <form action="">

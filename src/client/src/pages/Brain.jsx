@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import brain from "../images/brain.png";
-
 import ViewDetails from "./ViewDetails.jsx";
 import ModifyRemedyPage from "./ModifyRemedyPage";
+import { useAuth0 } from "@auth0/auth0-react";
+import sadPanda from "../images/sadpanda.png";
 
 export default function Brain() {
   //the state of the list of remeides for this component
@@ -15,16 +15,29 @@ export default function Brain() {
   //A state that captures the ID of the current item that should be fetched and rendered to the view or modify modal
   let [queryID, setQueryID] = useState("");
 
+  //only render page if user is authenticated
+  const { isAuthenticated, isLoading } = useAuth0();
+
+  function filterRemedies(id){
+    
+    let newRemedies = remedies.filter((approval) => {
+      return approval.remedies_id !== id;
+    })
+    setRemedies(newRemedies);
+  }
+
   //queries the database for matching items based on the url parameter
-  async function getRemedies() {
-    try {
-      let res = await fetch("http://localhost:8080/brain", {
-        method: "GET",
-      });
-      let resJson = await res.json();
-      setRemedies(resJson);
-    } catch (e) {
-      console.error(e);
+  async function getRemedies(isAuthenticated) {
+    if (isAuthenticated){
+      try {
+        let res = await fetch("http://localhost:8080/brain", {
+          method: "GET",
+        });
+        let resJson = await res.json();
+        setRemedies(resJson);
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
   //deletes entries from DB based on the ID
@@ -48,10 +61,15 @@ export default function Brain() {
   //initial load of getRemedies when page renders
   //being used similar to ComponentDidMount()
   useEffect(() => {
-    getRemedies();
-  }, []);
+    getRemedies(isAuthenticated);
+  }, [isAuthenticated]);
 
-  return (
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+    
+  return  (
+    isAuthenticated ? (
     <div data-testid="brain" className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
       <div>
         <img alt="Brain" className="category-image" src={brain} />
@@ -130,8 +148,9 @@ export default function Brain() {
                     <button
                       className="delete"
                       value={item.remedies_id}
-                      onClick={() => {
+                      onClick={(event) => {
                         deleteRemedy(item.remedies_id);
+                        filterRemedies(event.target.value);
                       }}
                     >
                       🗑
@@ -141,10 +160,12 @@ export default function Brain() {
               );
             })
           ) : (
-            <p>No entries</p>
+            <p className="text-align-center"><i className="fa-solid fa-box-open"></i>No entries</p>
           )}
         </table>
       </div>
     </div>
-  );
+ ) : (
+  <div className="d-flex justify-content-center align-items-center not-logged-in"><div><img src={sadPanda} alt="you are not logged in" className="sad-panda" /></div><div><p>Oh no! You are not currently signed in... Please sign in to view this page</p></div></div>
+ ) );
 }

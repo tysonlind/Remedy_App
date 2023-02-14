@@ -5,6 +5,7 @@ import router from "./routes/index.js";
 //import router from "./routes/organs.router.js";
 import config from "./config";
 import { errorHandler } from "./middlewares/errorHandler";
+/* const { auth } = require('express-openid-connect'); */
 //import path from 'path';
 
 const app = express();
@@ -16,13 +17,20 @@ const app = express();
 app.use(express.json());
 
 /**
+ * implementation of Auth0
+ */
+/* app.use(
+  auth(config.auth)
+); */
+
+/**
  * Enables incoming requests from cross origin domains
  */
 //allow cors
 app.use(cors());
 
 /**
- * Logs incoming request information to the dev console
+ * Logs incoming request informatiSon to the dev console
  */
 //development information only
 app.use(morgan("dev"));
@@ -44,7 +52,7 @@ app.use("/", router);
 /**
  * Error handler middleware
  */
-//app.use(errorHandler);
+/* app.use(errorHandler); */
 
 /**
  * Bind the app to a specified port

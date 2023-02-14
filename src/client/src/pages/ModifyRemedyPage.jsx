@@ -37,7 +37,6 @@ export default function ModifyRemedyPage({ open, onClose, id }) {
 
   async function updateRemedy(updateData) {
     try {
-      console.log(updateData);
       await fetch("http://localhost:8080/update-remedy", {
         method: "PUT",
         headers: {

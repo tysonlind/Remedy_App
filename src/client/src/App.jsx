@@ -13,11 +13,18 @@ import {
   AddRemedyPage,
   Homepage,
   Login,
+  LoginButton,
+  LogoutButton,
+  Profile,
+  Approvals,
 } from "./pages/index.js";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 function App() {
 
   const [theme, setTheme] = useLocalStorage('theme' ? 'dark' : 'light');
+  const { isAuthenticated } = useAuth0();
 
   const switchTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -40,7 +47,7 @@ function App() {
           </Link>
         </div>
         <div id="login">
-          <p className="login"><Link to="/login">Sign In</Link></p>
+          <p className="login">{isAuthenticated ? <LogoutButton /> : <LoginButton />}</p>
         </div>
         </div>
       </header>
@@ -56,8 +63,11 @@ function App() {
           <Route path="/intestines" element={<Intestines />} />
           <Route path="/lymphnodes" element={<Lymphnodes />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/approvals" element={<Approvals />} />
         </Routes>
       </div>
+      
       <Footer />
     </BrowserRouter>
     </div>

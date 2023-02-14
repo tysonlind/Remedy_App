@@ -15,5 +15,14 @@ export default {
     password: process.env.DB_PASS,
     database: process.env.DB_SCHEMA,
   },
+  auth:{
+    issuerBaseURL: process.env.ISSUER_BASE_URL,
+    baseURL: process.env.BASE_URL,
+    clientID: process.env.CLIENT_ID,
+    secret: process.env.SECRET,
+    authRequired: false,
+    auth0Logout: true,
+    idpLogout: true,
+  },
   port: parseInt(process.env.PORT),
 };

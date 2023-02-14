@@ -5,9 +5,9 @@ export default function ViewDetails({ open, onClose, id }) {
   const [remedy, setRemedy] = useState([]);
 
   //gets remedy by ID, value is populated from a button that is mapped with the ID and passes it to getRemedies when clicked
-  async function getRemedies(id) {
+  async function getApprovals(id) {
     try {
-      let res = await fetch(`http://localhost:8080/remedy/${id}`, {
+      let res = await fetch(`http://localhost:8080/approvals/${id}`, {
         method: "GET",
       });
       let resJson = await res.json();
@@ -18,7 +18,7 @@ export default function ViewDetails({ open, onClose, id }) {
   }
 //useEffect allows getRemedies to perform a new fetch when ID is updated, ensuring that the state of ID is current at the time of query
   useEffect(() => {
-    getRemedies(id);
+    getApprovals(id);
   }, [id]);
 
   if (!open) {

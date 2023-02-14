@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import uuid from 'react-uuid';
 
 export default function AddRemedyPage(props) {
   //These states store the data that will be posted to the homeopathicDB remedies table
@@ -16,6 +17,7 @@ export default function AddRemedyPage(props) {
 
   //Object container to formats the POST data for easy readability and testability that it's receiving the correct variables
   const postData = {
+    remedies_id: uuid(),
     Name: remedyName,
     AffectedOrgans: affectedOrgans,
     Description: description,
@@ -33,8 +35,7 @@ export default function AddRemedyPage(props) {
   //output: none
   async function addRemedy() {
     try {
-      console.log(postData);
-      await fetch("http://localhost:8080/add-remedy", {
+      await fetch("http://localhost:8080/add-approval", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -51,7 +52,7 @@ export default function AddRemedyPage(props) {
   return (
     <>
     <br />
-    <div className="modal d-flex justify-content-center wrap align-items-center">
+    <div className="modal d-flex justify-content-center wrap align-items-center add-remedy-modal">
       <h2 className="add-remedy-header">Add a Remedy</h2>
       <form onSubmit={onSubmit}>
         <div>

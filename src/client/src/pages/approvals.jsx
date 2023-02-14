@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import LymphnodesImg from "../images/lymphatic-system.png";
-import ViewDetails from "./ViewDetails.jsx";
+import ViewApprovalsDetails from "./ViewApprovalsDetails.jsx";
 import ModifyRemedyPage from "./ModifyRemedyPage";
 import { useAuth0 } from "@auth0/auth0-react";
 import sadPanda from "../images/sadpanda.png";
 
-export default function Lymphnodes() {
-  //bring in the isAuthenticated property state from useAuth0
-  const { isAuthenticated, isLoading } = useAuth0();
 
+export default function Approvals() {
   //the state of the list of remeides for this component
-  const [remedies, setRemedies] = useState("");
+  const [approvals, setApprovals] = useState([]);
   //states that control whether the "view" and "modify" modals are visible, triggered by the button "view" and "modify"
   const [openModal, setOpenModal] = useState(false);
   const [openModify, setOpenModify] = useState(false);
@@ -18,23 +15,86 @@ export default function Lymphnodes() {
   //A state that captures the ID of the current item that should be fetched and rendered to the view or modify modal
   let [queryID, setQueryID] = useState("");
 
-  async function getRemedies(isAuthenticated) {
+  //only render page if user is authenticated
+  const { isAuthenticated, isLoading } = useAuth0();
+
+  let postData = {
+    remedies_id: '',
+    Name: '',
+    AffectedOrgans: '',
+    Description: '',
+    AddedBy:'admin',
+    Dosage: '',
+    Uses: '',
+    isApproved: '',
+  };
+
+
+
+  function filterAndSetPostData(id){
+    for (let i = 0; i < approvals.length; i++) {
+      if (approvals[i].remedies_id === id ){
+       postData = {
+          remedies_id: approvals[i].remedies_id,
+          Name: approvals[i].Name,
+          AffectedOrgans: approvals[i].AffectedOrgans,
+          Description: approvals[i].Description,
+          AddedBy: 'admin',
+          Dosage: approvals[i].Dosage,
+          Uses: approvals[i].Uses,
+          isApproved: 1
+        };
+      }
+    }
+  }
+
+  function filterApprovals(id){
+    
+    let newApprovals = approvals.filter((approval) => {
+      return approval.remedies_id !== id;
+    })
+    setApprovals(newApprovals);
+  }
+
+  //queries the database for matching items based on the url parameter
+  async function getApprovals(isAuthenticated) {
     if (isAuthenticated){
       try {
-        let res = await fetch("http://localhost:8080/lymphnodes", {
+        let res = await fetch("http://localhost:8080/approvals", {
           method: "GET",
         });
         let resJson = await res.json();
-        setRemedies(resJson);
+        setApprovals(resJson);
       } catch (e) {
         console.error(e);
       }
     }
   }
-
-  async function deleteRemedy(id) {
+  async function addRemedy(postData, isAuthenticated) {
+    console.log(postData);
+    if (isAuthenticated){
     try {
-      await fetch("http://localhost:8080/delete-remedy", {
+      await fetch("http://localhost:8080/add-remedy", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        mode: "cors",
+        body: JSON.stringify(postData),
+      });
+    } catch (e) {
+      console.error(e);
+    }
+    console.log("remedy added");
+  }
+  
+  }
+  //deletes entries from DB based on the ID
+  //input type: Number
+  async function deleteApproval(id) {
+    try {
+      await fetch("http://localhost:8080/delete-approval", {
         method: "DELETE",
         headers: {
           Accept: "application/json",
@@ -43,42 +103,33 @@ export default function Lymphnodes() {
         mode: "cors",
         body: JSON.stringify({ id: id }),
       });
-      getRemedies();
+      getApprovals();
     } catch (e) {
       console.error(e);
     }
   }
-  //initial load of getRemedies when page renders
-  //being used similar to ComponentDidMount()
   useEffect(() => {
-    getRemedies(isAuthenticated);
+    getApprovals(isAuthenticated);
   }, [isAuthenticated]);
+
 
   if (isLoading) {
     return <div>Loading ...</div>;
   }
-
-  return (
+    
+  return  (
     isAuthenticated ? (
     <div className="d-flex wrap justify-content-center padding-top-40 page-imgs margin-left-10 align-items-center">
-      <div>
-        <img alt="Lungs"  className="category-image" src={LymphnodesImg} />
-      </div>
       <div className="organ-heading">
         <h1>
-          <strong>Lymphnodes Related Remedies</strong>
+          <strong>Admin Remedy Approvals</strong>
         </h1>
       </div>
       <div>
-        <ViewDetails
+        <ViewApprovalsDetails
           open={openModal}
           id={queryID}
           onClose={() => setOpenModal(false)}
-        />
-        <ModifyRemedyPage
-          open={openModify}
-          id={queryID}
-          onClose={() => setOpenModify(false)}
         />
         <table>
           <tr className="theader-styling">
@@ -88,10 +139,10 @@ export default function Lymphnodes() {
             <th className="prio-4">Dosage</th>
             <th className="prio-5">Use Cases</th>
             <th className="prio-6">Description</th>
-            <th className="prio-7">Edit/Delete</th>
+            <th className="prio-7">Approve?</th>
           </tr>
-          {remedies.length > 0 ? (
-            remedies.map((item) => {
+          {approvals.length > 0 ? (
+            approvals.map((item) => {
               return (
                 <tr className="query-styling">
                   <td className="prio-1">
@@ -125,24 +176,27 @@ export default function Lymphnodes() {
                   </td>
                   <td className="prio-7">
                     <button
-                      className="modify"
+                      className="approve-remedy"
                       value={item.remedies_id}
-                      onClick={() => {
-                        setQueryID(item.remedies_id);
-                        setOpenModify(true);
+                      onClick={(event) => {
+                        filterAndSetPostData(event.target.value)                      
+                        addRemedy(postData, isAuthenticated);
+                        deleteApproval(event.target.value);
+                        filterApprovals(event.target.value);
                       }}
                     >
-                      ✎
+                     &#x2714;
                     </button>
                     <span> </span>
                     <button
-                      className="delete"
+                      className="reject-remedy"
                       value={item.remedies_id}
-                      onClick={() => {
-                        deleteRemedy(item.remedies_id);
+                      onClick={(event) => {
+                        deleteApproval(event.target.value);
+                        filterApprovals(event.target.value);
                       }}
                     >
-                      🗑
+                      x
                     </button>
                   </td>
                 </tr>
@@ -154,7 +208,7 @@ export default function Lymphnodes() {
         </table>
       </div>
     </div>
-  ) : (
-    <div className="d-flex justify-content-center align-items-center not-logged-in"><div><img src={sadPanda} alt="you are not logged in" className="sad-panda" /></div><div><p>Oh no! You are not currently signed in... Please sign in to view this page</p></div></div>
-  ));
+ ) : (
+  <div className="d-flex justify-content-center align-items-center not-logged-in"><div><img src={sadPanda} alt="you are not logged in" className="sad-panda" /></div><div><p>Oh no! You are not currently signed in... Please sign in to view this page</p></div></div>
+ ) );
 }
