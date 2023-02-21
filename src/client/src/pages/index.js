@@ -12,6 +12,7 @@ import LoginButton from "../components/LoginButton.tsx";
 import LogoutButton from "../components/LogoutButton.tsx";
 import Profile from "./profile.jsx";
 import Approvals from "./approvals.jsx";
+import IndividualRemedy from "./InidividualRemedy.jsx";
 
 export {
   Brain,
@@ -28,4 +29,5 @@ export {
   LogoutButton,
   Profile,
   Approvals,
+  IndividualRemedy,
 };

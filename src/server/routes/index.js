@@ -9,6 +9,7 @@ router.post("/add-approval", async (req, res, next) => {
   try {
     let { body } = req;
     controller.addApproval(body);
+    res.setHeader("Content-Type", "application/json");
     res.status(200);
     res.end();
   } catch (e) {
@@ -21,6 +22,7 @@ router.post("/add-remedy", async (req, res, next) => {
   try {
     let { body } = req;
     controller.addRemedy(body);
+    res.setHeader("Content-Type", "application/json");
     res.status(200);
     res.end();
   } catch (e) {
@@ -33,6 +35,7 @@ router.post("/add-remedy", async (req, res, next) => {
 router.get("/approvals", async (req, res, next) => {
   try {
     let data = await controller.getApprovals();
+    res.setHeader("Content-Type", "application/json");
     res.json(data);
     res.status(200);
   } catch (e) {
@@ -45,6 +48,7 @@ router.get("/approvals", async (req, res, next) => {
 router.get("/:AffectedOrgans", async (req, res, next) => {
   try {
     let { AffectedOrgans } = req.params;
+    res.setHeader("Content-Type", "application/json");
     let data = await controller.findOrgan(AffectedOrgans);
     res.json(data);
     res.status(200);
