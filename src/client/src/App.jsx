@@ -17,9 +17,9 @@ import {
   LogoutButton,
   Profile,
   Approvals,
+  IndividualRemedy,
 } from "./pages/index.js";
 import { useAuth0 } from "@auth0/auth0-react";
-import IndividualRemedy from "./pages/InidividualRemedy.jsx";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");

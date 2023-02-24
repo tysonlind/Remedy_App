@@ -26,6 +26,11 @@ export default function Approvals() {
     Dosage: "",
     Uses: "",
     isApproved: "",
+    remedyLikes: 0,
+    remedyDislikes: 0,
+    price: null,
+    totalRatings: 0,
+    productRating:0,
   };
 
   function filterAndSetPostData(id) {
