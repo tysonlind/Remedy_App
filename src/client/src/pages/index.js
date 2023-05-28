@@ -1,4 +1,4 @@
-import Brain from "./Brain.jsx";
+import { Brain } from "./Brain.jsx";
 import Heart from "./Heart.jsx";
 import Liver from "./Liver.jsx";
 import Lungs from "./Lungs.jsx";

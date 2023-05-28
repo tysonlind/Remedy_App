@@ -5,7 +5,7 @@ import ModifyRemedyPage from "./ModifyRemedyPage";
 import { useAuth0 } from "@auth0/auth0-react";
 import sadPanda from "../images/sadpanda.png";
 
-export default function Brain() {
+export function Brain() {
   //the state of the list of remeides for this component
   const [remedies, setRemedies] = useState("");
   //states that control whether the "view" and "modify" modals are visible, triggered by the button "view" and "modify"
